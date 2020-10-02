@@ -6,47 +6,45 @@
 
 #define BUF_SIZE 10
 #define DX 3
-int TAB_SIZE = 4;
+int tab_size = 4;
 
-#define MIN(X, Y) X < Y ? X : Y
-#define MAX(X, Y) X < Y ? Y : X
+int min(int x, int y)
+{
+	return x < y ? x : y;	
+}
+int max(int x, int y)
+{
+	return x < y ? y : x;
+}
 
 
 enum key_code
 {
-// 	KEY_RIGHT   =  261,
-// 	KEY_LEFT    =  260,
-// 	KEY_UP      =  259,
-// 	KEY_DOWN    =  258,
-// 	KEY_NPAGE   =  338,
-// 	KEY_PPAGE   =  339,
-	KEY_SPACE   =  32,
+	KEY_SPACE   =  ' ',
 	KEY_ESC     =  27
 };
 
-struct Text
+typedef struct
 {
 	int line_count;
 	int max_line_len;
 	char **lines;
-};
-typedef struct Text Text;
+} Text;
 
-struct Page
+typedef struct
 {
 	int first_line;
 	int last_line;
 	int height;
 	int horizontal_offs;
-};
-typedef struct Page Page;
+} Page;
 
 char *read_line(FILE *f, int *finished, int *line_len)
 {
 	*finished = 0;
 	int buf_size = BUF_SIZE;
 	char *line = (char*) malloc(buf_size);
-	char c;
+	int c;
 	
 	int i = 0;
 	while (((c=fgetc(f)) != '\n') && (c != EOF))
@@ -54,7 +52,7 @@ char *read_line(FILE *f, int *finished, int *line_len)
 		int repeat = 1;
 		if (c == '\t')
 		{
-			repeat = TAB_SIZE;
+			repeat = tab_size;
 			c = ' ';
 		}
 		for (int j = 0; j < repeat; ++j)
@@ -107,7 +105,7 @@ Text read_file(const char *filename)
 		}
 		int curr_line_len;
 		lines[i] = read_line(f, &eof_reached, &curr_line_len);
-		text.max_line_len = MAX(curr_line_len, text.max_line_len);
+		text.max_line_len = max(curr_line_len, text.max_line_len);
 		++i;
 	}
 	text.line_count = i;
@@ -129,7 +127,7 @@ void free_text(Text text)
 
 void w_add_nchars(WINDOW *win, const char *str, uint32_t n)
 {
-	for (int i = 0; (i < n) && (str[i] != '\0'); ++i)
+	for (uint32_t i = 0; (i < n) && (str[i] != '\0'); ++i)
 	{
 		waddch(win, str[i]);
 	}
@@ -139,8 +137,8 @@ Page create_page(int first_line, int line_count, int text_line_count, int horizo
 {
 	Page page;
 	page.height = line_count;
-	page.first_line = MIN(first_line, text_line_count-1);
-	page.last_line = MIN(first_line + line_count -1, text_line_count-1);
+	page.first_line = min(first_line, text_line_count-1);
+	page.last_line = min(first_line + line_count -1, text_line_count-1);
 	page.horizontal_offs = horizontal_offs;
 
 	return page;
@@ -149,7 +147,7 @@ Page create_page(int first_line, int line_count, int text_line_count, int horizo
 WINDOW *dbg_win;
 Page page_up(Page page, int line_shift)
 {
-	int actual_shift = MIN(page.first_line, line_shift);
+	int actual_shift = min(page.first_line, line_shift);
 	page.first_line -= actual_shift;
 	page.last_line -= actual_shift;
 
@@ -158,7 +156,7 @@ Page page_up(Page page, int line_shift)
 
 Page page_down(Page page, int line_shift, int text_line_count)
 {
-	int actual_shift = MIN(line_shift, text_line_count-1 - page.last_line);
+	int actual_shift = min(line_shift, text_line_count-1 - page.last_line);
 	page.first_line += actual_shift;
 	page.last_line += actual_shift;
 
@@ -167,14 +165,14 @@ Page page_down(Page page, int line_shift, int text_line_count)
 
 Page page_left(Page page, int line_shift)
 {
-	page.horizontal_offs = MAX(0, page.horizontal_offs - line_shift);
+	page.horizontal_offs = max(0, page.horizontal_offs - line_shift);
 
 	return page;
 }
 
 Page page_right(Page page, int line_shift, int max_line_len)
 {
-	page.horizontal_offs = MIN(page.horizontal_offs + line_shift, max_line_len - 1);
+	page.horizontal_offs = min(page.horizontal_offs + line_shift, max_line_len - 1);
 
 	return page;
 }
@@ -185,7 +183,7 @@ void wput_text_line(WINDOW *win, Text text, int i, int horizontal_offs, int win_
 	sprintf(line_start, " %3d: ", i+1);
 	wprintw(win, "%s", line_start);
 	int rest_width = win_width -1 - strlen(line_start);
-	if (horizontal_offs < strlen(text.lines[i]))
+	if (horizontal_offs < (int) strlen(text.lines[i]))
 		w_add_nchars(win, text.lines[i] + horizontal_offs, rest_width);
 	waddch(win, '\n');
 }
