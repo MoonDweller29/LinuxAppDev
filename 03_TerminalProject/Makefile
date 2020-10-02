@@ -1,6 +1,5 @@
 Show: Show.c
-	gcc Show.c -lncursesw -o Show.out
+	gcc Show.c -lncursesw -o Show
 
 clean:
-	rm -rf *.o
-	rm -rf *.out
+	rm -rf *.o *~ Show
