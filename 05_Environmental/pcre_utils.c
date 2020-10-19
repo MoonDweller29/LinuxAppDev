@@ -26,7 +26,12 @@ int pcre_find(const char *str_pattern, const char *str_subject, WINDOW *win)
 
     subject_length = (PCRE2_SIZE)strlen((char *)subject);
 
-    re = pcre2_compile(pattern, PCRE2_ZERO_TERMINATED, PCRE2_UCP, &errnum, &erroffs, NULL);
+    #ifdef DISABLE_UTF 
+        // wprintw(win, " UTF_DISABLED\n", PCRE2_UCP);
+        re = pcre2_compile(pattern, PCRE2_ZERO_TERMINATED, 0, &errnum, &erroffs, NULL);
+    #else
+        re = pcre2_compile(pattern, PCRE2_ZERO_TERMINATED, PCRE2_UCP, &errnum, &erroffs, NULL);
+    #endif
 
     if (re == NULL) {
         PCRE2_UCHAR buffer[256];
