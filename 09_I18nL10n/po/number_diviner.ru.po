@@ -1,0 +1,75 @@
+# COOL NUMBER DIVINER.
+# Copyright (C) 2020 MoonDweller29
+# This file is distributed under the same license as the number_diviner package.
+# Andrew <andrey.astapov@graphics.cs.msu.ru>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: number_diviner 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-15 15:03+0300\n"
+"PO-Revision-Date: 2020-11-15 00:45+0300\n"
+"Last-Translator: Andrew <andrey.astapov@graphics.cs.msu.ru>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: number_diviner.c:17
+msgid "Yes"
+msgstr "Да"
+
+#: number_diviner.c:18
+msgid "yes"
+msgstr "да"
+
+#: number_diviner.c:19
+msgid "Y"
+msgstr "Д"
+
+#: number_diviner.c:20
+msgid "y"
+msgstr "д"
+
+#: number_diviner.c:23
+msgid "No"
+msgstr "Нет"
+
+#: number_diviner.c:24
+msgid "no"
+msgstr "нет"
+
+#: number_diviner.c:25
+msgid "N"
+msgstr "Н"
+
+#: number_diviner.c:26
+msgid "n"
+msgstr "н"
+
+#: number_diviner.c:30
+#, c-format
+msgid "wrong input\n"
+msgstr "некорректный ввод\n"
+
+#: number_diviner.c:61
+#, c-format
+msgid "Is the number higher than %d?\n"
+msgstr "Ваше число больше чем %d?\n"
+
+#: number_diviner.c:85
+#, c-format
+msgid ""
+"Make a number from 1 to 100\n"
+"(don't tell it, just imagine and press Enter)\n"
+msgstr ""
+"Загадайте число от 1 до 100\n"
+"(не вводите его, просто нажмите Enter)\n"
+
+#: number_diviner.c:92
+#, c-format
+msgid "Your number is %d\n"
+msgstr "Ваше число - %d\n"
