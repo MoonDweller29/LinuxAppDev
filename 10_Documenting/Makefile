@@ -8,8 +8,11 @@ TGT_NAME = number_diviner
 
 all: $(TGT_NAME) ru/LC_MESSAGES/$(TGT_NAME).mo
 
-$(TGT_NAME): $(TGT_NAME).c
-	$(CC) $< -o $@
+%.o : %.c
+	$(CC) -c $< -o $@
+
+$(TGT_NAME): $(TGT_NAME).o roman.o
+	$(CC) $^ -o $@
 
 %/LC_MESSAGES/$(TGT_NAME).mo: po/$(TGT_NAME).%.po
 	mkdir -p `dirname $@`
@@ -22,8 +25,10 @@ po/$(TGT_NAME).pot: $(TGT_NAME).c
 	xgettext -k_ -c $(TGT_NAME).c -o update.pot
 	msgmerge -U $@ update.pot
 
+.PHONY: clean
 clean:
 	rm -f $(TGT_NAME)
+	rm -f *.o
 	rm -f po/*.pot~ po/*.po~ update.pot
 	rm -rf */LC_MESSAGES/*
 	rm -rf ru/
