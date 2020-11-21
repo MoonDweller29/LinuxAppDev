@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: number_diviner 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-22 01:24+0300\n"
+"POT-Creation-Date: 2020-11-22 02:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,56 +17,64 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: number_diviner.c:31
+#: number_diviner.c:32
 msgid "Yes"
 msgstr ""
 
-#: number_diviner.c:32
+#: number_diviner.c:33
 msgid "yes"
 msgstr ""
 
-#: number_diviner.c:33
+#: number_diviner.c:34
 msgid "Y"
 msgstr ""
 
-#: number_diviner.c:34
+#: number_diviner.c:35
 msgid "y"
 msgstr ""
 
-#: number_diviner.c:37
+#: number_diviner.c:38
 msgid "No"
 msgstr ""
 
-#: number_diviner.c:38
+#: number_diviner.c:39
 msgid "no"
 msgstr ""
 
-#: number_diviner.c:39
+#: number_diviner.c:40
 msgid "N"
 msgstr ""
 
-#: number_diviner.c:40
+#: number_diviner.c:41
 msgid "n"
 msgstr ""
 
-#: number_diviner.c:44
+#: number_diviner.c:45
 #, c-format
 msgid "wrong input\n"
 msgstr ""
 
-#: number_diviner.c:76
+#: number_diviner.c:77
 #, c-format
 msgid "Is the number higher than %s?\n"
 msgstr ""
 
-#: number_diviner.c:114
+#: number_diviner.c:97
+msgid ""
+"Usage: number_diviner [options]\n"
+"Options:\n"
+"  -r             enable roman numbers\n"
+"  -h, --help     print help\n"
+msgstr ""
+
+#: number_diviner.c:146
 #, c-format
 msgid ""
 "Make a number from %s to %s\n"
 "(don't tell it, just imagine and press Enter)\n"
 msgstr ""
 
-#: number_diviner.c:123
+#: number_diviner.c:155
 #, c-format
 msgid "Your number is %s\n"
 msgstr ""

@@ -4,6 +4,7 @@
 #include <libintl.h>
 #include <locale.h>
 #include <unistd.h>
+#include <getopt.h>
 
 #include "roman.h"
 
@@ -91,25 +92,56 @@ int bin_search(int low, int high) {
     return low;
 }
 
+void printHelp() {
+    printf("%s", _(
+        "Usage: number_diviner [options]\n"
+        "Options:\n"
+        "  -r             enable roman numbers\n"
+        "  -h, --help     print help\n"  
+    ));
+}
+
 int main(int argc, char **argv)
 {
-    int opt;
+    int help = 0;
     char buf1[BUF_SIZE];
     char buf2[BUF_SIZE];
-      
-    while((opt = getopt(argc, argv, "r")) != -1)  
-    {  
-        switch(opt)  
+
+
+    const char* short_options = "rh";
+    const struct option long_options[] = {
+        {"help",no_argument,NULL,'h'},
+        {NULL,0,NULL,0}
+    };
+
+    int rez;
+    int option_index;
+
+    while ((rez=getopt_long(argc, argv, short_options,
+                            long_options, &option_index))!=-1)
+    {
+        switch(rez)
         {  
             case 'r':
                 roman_encoding = 1;
-                break;  
+                break;
+            case 'h':
+                help = 1;
+                break;
+            default:
+                return -1;
         }
     }
+
 
     setlocale (LC_ALL, "");
     bindtextdomain ("number_diviner", LOCALE_PATH);
     textdomain ("number_diviner");
+    
+    if (help) {
+        printHelp();
+        return 0;
+    }
 
     printf(_("Make a number from %s to %s\n(don't tell it, just imagine and press Enter)\n"),
         intToS(1, buf1), intToS(100, buf2)

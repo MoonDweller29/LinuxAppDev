@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: number_diviner 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-22 01:24+0300\n"
+"POT-Creation-Date: 2020-11-22 02:38+0300\n"
 "PO-Revision-Date: 2020-11-15 00:45+0300\n"
 "Last-Translator: Andrew <andrey.astapov@graphics.cs.msu.ru>\n"
 "Language-Team: Russian\n"
@@ -18,49 +18,61 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: number_diviner.c:31
+#: number_diviner.c:32
 msgid "Yes"
 msgstr "Да"
 
-#: number_diviner.c:32
+#: number_diviner.c:33
 msgid "yes"
 msgstr "да"
 
-#: number_diviner.c:33
+#: number_diviner.c:34
 msgid "Y"
 msgstr "Д"
 
-#: number_diviner.c:34
+#: number_diviner.c:35
 msgid "y"
 msgstr "д"
 
-#: number_diviner.c:37
+#: number_diviner.c:38
 msgid "No"
 msgstr "Нет"
 
-#: number_diviner.c:38
+#: number_diviner.c:39
 msgid "no"
 msgstr "нет"
 
-#: number_diviner.c:39
+#: number_diviner.c:40
 msgid "N"
 msgstr "Н"
 
-#: number_diviner.c:40
+#: number_diviner.c:41
 msgid "n"
 msgstr "н"
 
-#: number_diviner.c:44
+#: number_diviner.c:45
 #, c-format
 msgid "wrong input\n"
 msgstr "некорректный ввод\n"
 
-#: number_diviner.c:76
+#: number_diviner.c:77
 #, c-format
 msgid "Is the number higher than %s?\n"
 msgstr "Ваше число больше чем %s?\n"
 
-#: number_diviner.c:114
+#: number_diviner.c:97
+msgid ""
+"Usage: number_diviner [options]\n"
+"Options:\n"
+"  -r             enable roman numbers\n"
+"  -h, --help     print help\n"
+msgstr ""
+"Использование: number_diviner [опции]\n"
+"Опции:\n"
+"  -r             включить использование римских чисел\n"
+"  -h, --help     распечатать справочную информацию\n"
+
+#: number_diviner.c:146
 #, c-format
 msgid ""
 "Make a number from %s to %s\n"
@@ -69,7 +81,7 @@ msgstr ""
 "Загадайте число от %s до %s\n"
 "(не вводите его, просто нажмите Enter)\n"
 
-#: number_diviner.c:123
+#: number_diviner.c:155
 #, c-format
 msgid "Your number is %s\n"
 msgstr "Ваше число - %s\n"
