@@ -6,7 +6,7 @@ CC = gcc
 
 TGT_NAME = number_diviner
 
-all: $(TGT_NAME) ru/LC_MESSAGES/$(TGT_NAME).mo
+all: $(TGT_NAME) ru/LC_MESSAGES/$(TGT_NAME).mo man
 
 %.o : %.c
 	$(CC) -c $< -o $@
@@ -25,9 +25,15 @@ po/$(TGT_NAME).pot: $(TGT_NAME).c
 	xgettext -k_ -c $(TGT_NAME).c -o update.pot
 	msgmerge -U $@ update.pot
 
-man: $(TGT_NAME)
+man: man1/$(TGT_NAME).1
+
+man1/$(TGT_NAME).1: $(TGT_NAME)
 	mkdir -p man1
-	help2man ./$(TGT_NAME) > man1/$(TGT_NAME).1
+	help2man ./$(TGT_NAME) > $@
+
+.PHONY: show_man
+show_man: man
+	MANPATH=`pwd` man $(TGT_NAME)
 
 
 .PHONY: clean
