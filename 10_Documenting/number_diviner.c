@@ -1,3 +1,22 @@
+/*! 
+\mainpage Main page
+number_diviner : a simple terminal game
+
+###Rules:
+
+Choose a number in range [1, 100] and the programm will try to divine it  
+
+###Usage: number_diviner [options]
+
+###options:
+ -  -r             enable roman numbers
+ -  -h, --help     print help
+*/
+
+/*!
+\file
+\brief main file
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,12 +31,18 @@
 #define LOCALE_PATH "."
 
 #define BUF_SIZE 30
-#define WRONG_INPUT -1
-#define YES 1
-#define NO 0
+#define WRONG_INPUT -1 ///< incorrect input
+#define YES 1 ///< positive answer
+#define NO 0 ///< negative answer
 
-int roman_encoding = 0;
+int roman_encoding = 0; ///< if true program will work with roman numbers, otherwise - with arabic
 
+/**
+\brief prints integer to string according to #roman_encoding
+prints integer to string according to #roman_encoding
+\param[in] x arabic integer in range [1, #MAX_ROMAN]
+\param[out] buf char buffer for containig roman or arabic number.
+*/
 char *intToS(int x, char *buf) {
     if (roman_encoding) {
         toRoman(x, buf);
@@ -28,6 +53,12 @@ char *intToS(int x, char *buf) {
     return buf;
 }
 
+/**
+\brief extracts user answer from string
+extracts user answer from string
+\param[in] str string with user input
+\return integer code of answer (one of #YES, #NO, #WRONG_INPUT)
+*/
 int check_answer(const char* str) {
     if (strcmp(str, _("Yes")) == 0 ||
         strcmp(str, _("yes")) == 0 ||
@@ -47,6 +78,12 @@ int check_answer(const char* str) {
     }
 }
 
+/**
+\brief reads user input line to buffer
+reads user input line to buffer, ingoring extra chars in line
+\param[out] buf buffer where user input will be stored
+\param[in] size size of buffer. All extra chars from input line would be ignored
+*/
 void read_to_buf(char buf[], int size) {
     int i = 0;
     int c = getchar();
@@ -68,6 +105,13 @@ void read_to_buf(char buf[], int size) {
     }
 }
 
+/**
+\brief core function of the program
+makes bin search of user's number in specified range
+\param[in] low low border of input range [low, high]
+\param[out] high high border of input range [low, high]
+\return returns user's number
+*/
 int bin_search(int low, int high) {
     char buf[BUF_SIZE];
     char number_str[BUF_SIZE];
@@ -92,6 +136,10 @@ int bin_search(int low, int high) {
     return low;
 }
 
+
+/**
+This function prints help info
+*/
 void printHelp() {
     printf("%s", _(
         "number_diviner : a simple terminal game\n"

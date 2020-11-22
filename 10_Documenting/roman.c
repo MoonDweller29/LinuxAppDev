@@ -1,10 +1,18 @@
+/*!
+\file
+\brief file with realization of functions from roman.h
+
+This file contains realization of functions
+for encoding numbers to roman encoding and back
+*/
 #include "roman.h"
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
 
-#define ROMAN_DOMAIN_COUNT 28
+#define ROMAN_DOMAIN_COUNT 28 ///< count of different roman string domains
 
+/// arabic numbers corresponding to roman domains
 static int arabicNum[ROMAN_DOMAIN_COUNT] = {
     1000,
     900,
@@ -36,6 +44,8 @@ static int arabicNum[ROMAN_DOMAIN_COUNT] = {
     1 
 };
 
+
+/// roman domains
 static char romanNum[ROMAN_DOMAIN_COUNT][MAX_ROMAN_LEN] = {
     "M",
     "CM",

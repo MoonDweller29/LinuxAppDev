@@ -6,7 +6,7 @@ CC = gcc
 
 TGT_NAME = number_diviner
 
-all: $(TGT_NAME) ru/LC_MESSAGES/$(TGT_NAME).mo man
+all: $(TGT_NAME) ru/LC_MESSAGES/$(TGT_NAME).mo man DoxygenOut
 
 %.o : %.c
 	$(CC) -c $< -o $@
@@ -31,6 +31,9 @@ man1/$(TGT_NAME).1: $(TGT_NAME)
 	mkdir -p man1
 	help2man ./$(TGT_NAME) > $@
 
+DoxygenOut:
+	doxygen DoxyFile
+
 .PHONY: show_man
 show_man: man
 	MANPATH=`pwd` man $(TGT_NAME)
@@ -38,6 +41,7 @@ show_man: man
 
 .PHONY: clean
 clean:
+	rm -rf DoxygenOut
 	rm -rf man1
 	rm -f $(TGT_NAME)
 	rm -f *.o

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: number_diviner 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-22 04:02+0300\n"
+"POT-Creation-Date: 2020-11-22 19:44+0300\n"
 "PO-Revision-Date: 2020-11-15 00:45+0300\n"
 "Last-Translator: Andrew <andrey.astapov@graphics.cs.msu.ru>\n"
 "Language-Team: Russian\n"
@@ -18,49 +18,49 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: number_diviner.c:32
+#: number_diviner.c:63
 msgid "Yes"
 msgstr "Да"
 
-#: number_diviner.c:33
+#: number_diviner.c:64
 msgid "yes"
 msgstr "да"
 
-#: number_diviner.c:34
+#: number_diviner.c:65
 msgid "Y"
 msgstr "Д"
 
-#: number_diviner.c:35
+#: number_diviner.c:66
 msgid "y"
 msgstr "д"
 
-#: number_diviner.c:38
+#: number_diviner.c:69
 msgid "No"
 msgstr "Нет"
 
-#: number_diviner.c:39
+#: number_diviner.c:70
 msgid "no"
 msgstr "нет"
 
-#: number_diviner.c:40
+#: number_diviner.c:71
 msgid "N"
 msgstr "Н"
 
-#: number_diviner.c:41
+#: number_diviner.c:72
 msgid "n"
 msgstr "н"
 
-#: number_diviner.c:45
+#: number_diviner.c:76
 #, c-format
 msgid "wrong input\n"
 msgstr "некорректный ввод\n"
 
-#: number_diviner.c:77
+#: number_diviner.c:121
 #, c-format
 msgid "Is the number higher than %s?\n"
 msgstr "Ваше число больше чем %s?\n"
 
-#: number_diviner.c:97
+#: number_diviner.c:145
 msgid ""
 "number_diviner : a simple terminal game\n"
 "\n"
@@ -72,14 +72,15 @@ msgid ""
 "  -h, --help     print help\n"
 msgstr ""
 "number_diviner : простая терминальная игра\n"
-"\nПравила:\n"
+"\n"
+"Правила:\n"
 "Загадайте число в диапазоне [1, 100], и программа попытается угадать его\n"
 "Использование: number_diviner [опции]\n"
 "Опции:\n"
 "  -r             включить использование римских чисел\n"
 "  -h, --help     распечатать справочную информацию\n"
 
-#: number_diviner.c:158
+#: number_diviner.c:206
 #, c-format
 msgid ""
 "Make a number from %s to %s\n"
@@ -88,7 +89,7 @@ msgstr ""
 "Загадайте число от %s до %s\n"
 "(не вводите его, просто нажмите Enter)\n"
 
-#: number_diviner.c:167
+#: number_diviner.c:215
 #, c-format
 msgid "Your number is %s\n"
 msgstr "Ваше число - %s\n"
