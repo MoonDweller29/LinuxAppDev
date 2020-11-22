@@ -25,8 +25,14 @@ po/$(TGT_NAME).pot: $(TGT_NAME).c
 	xgettext -k_ -c $(TGT_NAME).c -o update.pot
 	msgmerge -U $@ update.pot
 
+man: $(TGT_NAME)
+	mkdir -p man1
+	help2man ./$(TGT_NAME) > man1/$(TGT_NAME).1
+
+
 .PHONY: clean
 clean:
+	rm -rf man1
 	rm -f $(TGT_NAME)
 	rm -f *.o
 	rm -f po/*.pot~ po/*.po~ update.pot

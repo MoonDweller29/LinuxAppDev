@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: number_diviner 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-22 02:38+0300\n"
+"POT-Creation-Date: 2020-11-22 04:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,20 +61,24 @@ msgstr ""
 
 #: number_diviner.c:97
 msgid ""
+"number_diviner : a simple terminal game\n"
+"\n"
+"Rules:\n"
+"Choose a number in range [1, 100] and the programm will try to divine it\n"
 "Usage: number_diviner [options]\n"
 "Options:\n"
 "  -r             enable roman numbers\n"
 "  -h, --help     print help\n"
 msgstr ""
 
-#: number_diviner.c:146
+#: number_diviner.c:158
 #, c-format
 msgid ""
 "Make a number from %s to %s\n"
 "(don't tell it, just imagine and press Enter)\n"
 msgstr ""
 
-#: number_diviner.c:155
+#: number_diviner.c:167
 #, c-format
 msgid "Your number is %s\n"
 msgstr ""

@@ -94,23 +94,28 @@ int bin_search(int low, int high) {
 
 void printHelp() {
     printf("%s", _(
+        "number_diviner : a simple terminal game\n"
+        "\nRules:\n"
+        "Choose a number in range [1, 100] and the programm will try to divine it\n"  
         "Usage: number_diviner [options]\n"
         "Options:\n"
         "  -r             enable roman numbers\n"
-        "  -h, --help     print help\n"  
+        "  -h, --help     print help\n"
     ));
 }
 
 int main(int argc, char **argv)
 {
     int help = 0;
+    int print_version = 0;
     char buf1[BUF_SIZE];
     char buf2[BUF_SIZE];
 
 
     const char* short_options = "rh";
     const struct option long_options[] = {
-        {"help",no_argument,NULL,'h'},
+        {"help",    no_argument, NULL,'h'},
+        {"version", no_argument, NULL,'v'},
         {NULL,0,NULL,0}
     };
 
@@ -128,11 +133,18 @@ int main(int argc, char **argv)
             case 'h':
                 help = 1;
                 break;
+            case 'v':
+                print_version = 1;
+                break;
             default:
                 return -1;
         }
     }
 
+    if (print_version) {
+        printf("0:0\n");
+        return 0;
+    }
 
     setlocale (LC_ALL, "");
     bindtextdomain ("number_diviner", LOCALE_PATH);
