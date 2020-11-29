@@ -58,7 +58,7 @@ int main(int argc, const char **argv) {
 
     GHashTable *dict = g_hash_table_new(g_str_hash, g_str_equal);
     while (read_to_buf(line, f) != EOF) {
-        gchar **tokens = g_strsplit_set(line, " ,.!:/|", 0); //TODO check -1
+        gchar **tokens = g_strsplit_set(line, " ,.!:/|", 0);
         int num_tokens = g_strv_length(tokens);
         
         for (int i = 0; i < num_tokens; ++i) {
