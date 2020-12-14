@@ -1,0 +1,72 @@
+# COOL NUMBER DIVINER.
+# Copyright (C) 2020 MoonDweller29
+# This file is distributed under the same license as the number_diviner package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: number_diviner 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-15 15:03+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: number_diviner.c:17
+msgid "Yes"
+msgstr ""
+
+#: number_diviner.c:18
+msgid "yes"
+msgstr ""
+
+#: number_diviner.c:19
+msgid "Y"
+msgstr ""
+
+#: number_diviner.c:20
+msgid "y"
+msgstr ""
+
+#: number_diviner.c:23
+msgid "No"
+msgstr ""
+
+#: number_diviner.c:24
+msgid "no"
+msgstr ""
+
+#: number_diviner.c:25
+msgid "N"
+msgstr ""
+
+#: number_diviner.c:26
+msgid "n"
+msgstr ""
+
+#: number_diviner.c:30
+#, c-format
+msgid "wrong input\n"
+msgstr ""
+
+#: number_diviner.c:61
+#, c-format
+msgid "Is the number higher than %d?\n"
+msgstr ""
+
+#: number_diviner.c:85
+#, c-format
+msgid ""
+"Make a number from 1 to 100\n"
+"(don't tell it, just imagine and press Enter)\n"
+msgstr ""
+
+#: number_diviner.c:92
+#, c-format
+msgid "Your number is %d\n"
+msgstr ""
