@@ -6,7 +6,7 @@ CC = gcc
 
 TGT_NAME = number_diviner
 
-INSTALL_PATH = $(shell pwd)
+INSTALL_PATH = /usr
 
 ifdef DESTDIR
 	INSTALL_PATH = $(abspath $(DESTDIR))
@@ -34,7 +34,17 @@ po/$(TGT_NAME).pot: $(TGT_NAME).c
 	xgettext -k_ -c $(TGT_NAME).c -o update.pot
 	msgmerge -U $@ update.pot
 
-clean:
-	rm -rf $(BIN_DIR)
+
+.PHONY: clean uninstall
+
+uninstall:
+	rm -f $(BIN_DIR)$(TGT_NAME)
+	rm -f $(LOCALE_PATH)*/LC_MESSAGES/$(TGT_NAME).mo
+
+clean: uninstall
 	rm -f po/*.pot~ po/*.po~ update.pot
-	rm -rf $(INSTALL_PATH)/share
+ifeq (/usr, $(INSTALL_PATH))
+else
+	rm -rf $(BIN_DIR)
+	rm -rf $(LOCALE_PATH)
+endif
