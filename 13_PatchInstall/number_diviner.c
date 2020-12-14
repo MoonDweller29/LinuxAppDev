@@ -80,7 +80,6 @@ int bin_search(int low, int high) {
 
 int main()
 {
-	printf("LOCALE_PATH = %s\n", LOCALE_PATH);
 	setlocale (LC_ALL, "");
 	bindtextdomain ("number_diviner", LOCALE_PATH);
 	textdomain ("number_diviner");
