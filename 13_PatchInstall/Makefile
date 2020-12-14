@@ -6,15 +6,24 @@ CC = gcc
 
 TGT_NAME = number_diviner
 
-LOCALE_PATH = `pwd`
+INSTALL_PATH = $(shell pwd)
+
+ifdef DESTDIR
+	INSTALL_PATH = $(abspath $(DESTDIR))
+endif
+
+LOCALE_PATH = $(INSTALL_PATH)/share/locale/
+BIN_DIR = $(INSTALL_PATH)/bin/
 
 
-all: $(TGT_NAME) ru/LC_MESSAGES/$(TGT_NAME).mo
+all: $(BIN_DIR)$(TGT_NAME) $(LOCALE_PATH)ru/LC_MESSAGES/$(TGT_NAME).mo
 
-$(TGT_NAME): $(TGT_NAME).c
+
+$(BIN_DIR)$(TGT_NAME): $(TGT_NAME).c
+	mkdir -p $(BIN_DIR)
 	$(CC) -DLOCALE_PATH=\"$(LOCALE_PATH)\" $< -o $@
 
-%/LC_MESSAGES/$(TGT_NAME).mo: po/$(TGT_NAME).%.po
+$(LOCALE_PATH)%/LC_MESSAGES/$(TGT_NAME).mo: po/$(TGT_NAME).%.po
 	mkdir -p `dirname $@`
 	msgfmt $< -o $@
 
@@ -26,7 +35,6 @@ po/$(TGT_NAME).pot: $(TGT_NAME).c
 	msgmerge -U $@ update.pot
 
 clean:
-	rm -f $(TGT_NAME)
+	rm -rf $(BIN_DIR)
 	rm -f po/*.pot~ po/*.po~ update.pot
-	rm -rf */LC_MESSAGES/*
-	rm -rf ru/
+	rm -rf $(INSTALL_PATH)/share
