@@ -6,7 +6,9 @@
 #include <locale.h>
 
 #define _(STRING) gettext(STRING)
-#define LOCALE_PATH "."
+#ifndef LOCALE_PATH
+	#define LOCALE_PATH "."
+#endif
 
 #define BUF_SIZE 10
 #define WRONG_INPUT -1
@@ -78,6 +80,7 @@ int bin_search(int low, int high) {
 
 int main()
 {
+	printf("LOCALE_PATH = %s\n", LOCALE_PATH);
 	setlocale (LC_ALL, "");
 	bindtextdomain ("number_diviner", LOCALE_PATH);
 	textdomain ("number_diviner");

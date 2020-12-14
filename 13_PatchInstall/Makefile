@@ -6,10 +6,13 @@ CC = gcc
 
 TGT_NAME = number_diviner
 
+LOCALE_PATH = `pwd`
+
+
 all: $(TGT_NAME) ru/LC_MESSAGES/$(TGT_NAME).mo
 
 $(TGT_NAME): $(TGT_NAME).c
-	$(CC) $< -o $@
+	$(CC) -DLOCALE_PATH=\"$(LOCALE_PATH)\" $< -o $@
 
 %/LC_MESSAGES/$(TGT_NAME).mo: po/$(TGT_NAME).%.po
 	mkdir -p `dirname $@`
